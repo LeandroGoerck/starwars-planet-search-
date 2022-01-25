@@ -1,6 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import getApi from '../services/getApi';
+
+const ONE_SECOND = 1000;
 
 function Table() {
+  // useEffect(() => {
+  //   getApi();
+  // }, []);
+
   return (
     <table>
       <tr>
