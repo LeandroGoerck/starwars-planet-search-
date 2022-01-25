@@ -1,9 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Table from './components/Table';
 
 function App() {
   return (
-    <span>Hello, App - Leandro!</span>
+    <div>
+      <Header />
+      <Table />
+    </div>
   );
 }
 
