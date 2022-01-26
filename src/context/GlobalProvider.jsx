@@ -5,11 +5,11 @@ import getApi from '../services/getApi';
 
 function GlobalProvider({ children }) {
   const [data, setData] = useState();
-  const [column, setColumn] = useState();
-  const [comparison, setComparison] = useState();
-  const [value, setValue] = useState();
-  const [search, setSearch] = useState();
-  const [filteredInfo, setFilteredInfo] = useState();
+  const [column, setColumn] = useState('population');
+  const [comparison, setComparison] = useState('maior que');
+  const [value, setValue] = useState(0);
+  const [search, setSearch] = useState('');
+  const [filteredInfo, setFilteredInfo] = useState({ filterByNumericValues: [] });
 
   useEffect(() => {
     const apiResults = () => {

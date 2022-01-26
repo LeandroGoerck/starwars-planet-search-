@@ -5,6 +5,7 @@ import FilterHeader from './components/FilterHeader';
 import Table from './components/Table';
 import GlobalProvider from './context/GlobalProvider';
 import SearchInput from './components/SearchInput';
+import FilterInformation from './components/FilterInformation';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Header />
       <SearchInput />
       <FilterHeader />
+      <FilterInformation />
       <Table />
     </GlobalProvider>
   );

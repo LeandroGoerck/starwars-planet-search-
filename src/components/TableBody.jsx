@@ -4,7 +4,7 @@ import GlobalContext from '../context/GlobalContext';
 const style = 'py-2 border-b border-slate-300';
 
 function TableBody() {
-  const { data, search } = useContext(GlobalContext);
+  const { data, search, column, comparison } = useContext(GlobalContext);
 
   const bodyArray = ['name',
     'rotation_period',
@@ -33,6 +33,17 @@ function TableBody() {
   }
 
   const filteredApiData = handleFilter(data, search);
+
+  function handleComparison(apiData, filterColumn, filterComparison, filterValue) {
+    if (filterColumn) {
+      const comparedData = apiData
+        .filter((infos) => infos[filterComparison] > filterValue);
+      return comparedData;
+    }
+    return apiData;
+  }
+
+  const filteredAndComparedData = handleComparison(filteredApiData, column, comparison);
 
   return (
     <tbody className="bg-white w-full">

@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import { useContext } from 'react';
+import GlobalContext from '../context/GlobalContext';
 
 function FilterInput(props) {
   const { value, handleChange, dataTestId } = props;
@@ -19,7 +21,7 @@ function FilterInput(props) {
           type="number"
           id="value"
           value={ value }
-          onChange={ () => handleChange(value) }
+          onChange={ (event) => handleChange(event.target.value) }
         />
       </label>
     </div>
@@ -29,7 +31,7 @@ function FilterInput(props) {
 FilterInput.propTypes = {
   dataTestId: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.string.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default FilterInput;

@@ -11,7 +11,8 @@ function FilterHeader() {
     comparison,
     setComparison,
     value,
-    // setValue,
+    setValue,
+    setFilteredInfo,
   } = useContext(GlobalContext);
 
   const columnArray = [
@@ -27,6 +28,12 @@ function FilterHeader() {
     'menor que',
     'igual a',
   ];
+
+  const filterObj = {
+    column,
+    comparison,
+    value,
+  };
 
   return (
     <div className="bg-yellow-500 pt-4 pb-4 flex flex-box justify-center">
@@ -46,10 +53,15 @@ function FilterHeader() {
 
       <FilterInput
         dataTestId="value-filter"
-        value={ value }
+        value={ Number(value) }
+        handleChange={ setValue }
       />
 
-      <ButtonFilter />
+      <ButtonFilter
+        dataTestId="button-filter"
+        value={ filterObj }
+        setFilteredInfo={ setFilteredInfo }
+      />
 
     </div>
   );
