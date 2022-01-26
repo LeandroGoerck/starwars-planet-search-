@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import GlobalContext from '../context/GlobalContext';
+import ButtonFilter from './ButtonFilter';
 import FilterInput from './FilterInput';
 import FilterSelect from './FilterSelect';
 
@@ -10,8 +11,22 @@ function FilterHeader() {
     comparison,
     setComparison,
     value,
-    setValue,
+    // setValue,
   } = useContext(GlobalContext);
+
+  const columnArray = [
+    'population',
+    'orbital_period',
+    'diameter',
+    'rotation_period',
+    'surface_water',
+  ];
+
+  const comparisonArray = [
+    'maior que',
+    'menor que',
+    'igual a',
+  ];
 
   return (
     <div className="bg-yellow-500 pt-4 pb-4 flex flex-box justify-center">
@@ -19,30 +34,25 @@ function FilterHeader() {
         dataTestId="column-filter"
         value={ column }
         handleChange={ setColumn }
-        valueArray={ [] }
+        valuesArray={ columnArray }
       />
 
       <FilterSelect
         dataTestId="comparison-filter"
         value={ comparison }
         handleChange={ setComparison }
-        valuesArray={ [] }
+        valuesArray={ comparisonArray }
       />
 
       <FilterInput
-        value={ value }
-        // handleChange={{}}
-      />
-
-      <FilterSelect
         dataTestId="value-filter"
         value={ value }
-        handleChange={ setValue }
-        valuesArray={ [] }
       />
 
+      <ButtonFilter />
+
     </div>
-  )
+  );
 }
 
 export default FilterHeader;

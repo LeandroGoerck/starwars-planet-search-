@@ -15,11 +15,11 @@ function FilterInput(props) {
           text-gray-700 leading-tight focus:outline-none focus:bg-white
           focus:border-green-500"
           placeholder="valor"
-          data-testid="value-input"
+          data-testid="value-filter"
           type="number"
           id="value"
           value={ value }
-          onChange={ () => {} }
+          onChange={ () => handleChange(value) }
         />
       </label>
     </div>

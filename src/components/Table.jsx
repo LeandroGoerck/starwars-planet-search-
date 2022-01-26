@@ -1,21 +1,13 @@
-import React, { useContext } from 'react';
-import GlobalContext from '../context/GlobalContext';
+import React from 'react';
+import TableHeader from './TableHeader';
+import TableBody from './TableBody';
 
 function Table() {
-  const {
-    data,
-  } = useContext(GlobalContext);
-  console.log(data);
   return (
-    <div>
-      <table className="bg-gray-500">
-        <tr>
-          <th className="px-4 py-2 border-b border-slate-300">Name</th>
-          <th className="px-4 py-2 border-b border-slate-300">Rotations</th>
-          <th className="px-4 py-2 border-b border-slate-300">Orbit Period</th>
-        </tr>
-      </table>
-    </div>
+    <table>
+      <TableHeader />
+      <TableBody />
+    </table>
   );
 }
 
