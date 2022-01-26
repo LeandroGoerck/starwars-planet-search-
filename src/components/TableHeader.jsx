@@ -1,5 +1,4 @@
-import React, { useContext } from 'react';
-import GlobalContext from '../context/GlobalContext';
+import React from 'react';
 
 const style = 'py-2 border-b border-slate-300';
 

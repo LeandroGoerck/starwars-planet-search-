@@ -15,7 +15,7 @@ function FilterInput(props) {
           text-gray-700 leading-tight focus:outline-none focus:bg-white
           focus:border-green-500"
           placeholder="valor"
-          data-testid="value-filter"
+          data-testid={ dataTestId }
           type="number"
           id="value"
           value={ value }
@@ -29,9 +29,7 @@ function FilterInput(props) {
 FilterInput.propTypes = {
   dataTestId: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  value: PropTypes.shape({
-    map: PropTypes.func.isRequired,
-  }),
+  value: PropTypes.string.isRequired,
 };
 
 export default FilterInput;

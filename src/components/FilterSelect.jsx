@@ -28,6 +28,7 @@ FilterSelect.propTypes = {
   dataTestId: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
   valuesArray: PropTypes.arrayOf(PropTypes.string).isRequired,
+  value: PropTypes.string.isRequired,
 };
 
 export default FilterSelect;
