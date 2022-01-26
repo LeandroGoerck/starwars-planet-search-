@@ -15,7 +15,7 @@ function FilterSelect(props) {
       data-testid={ dataTestId }
       id="method"
       value={ value }
-      onChange={ () => handleChange(value) }
+      onChange={ (event) => handleChange(event.target.value) }
     >
       {valuesArray !== []
       && valuesArray.map((item, index) => (

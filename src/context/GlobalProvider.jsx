@@ -8,6 +8,8 @@ function GlobalProvider({ children }) {
   const [column, setColumn] = useState();
   const [comparison, setComparison] = useState();
   const [value, setValue] = useState();
+  const [search, setSearch] = useState();
+  const [filteredInfo, setFilteredInfo] = useState();
 
   useEffect(() => {
     const apiResults = () => {
@@ -27,6 +29,10 @@ function GlobalProvider({ children }) {
         setComparison,
         value,
         setValue,
+        search,
+        setSearch,
+        filteredInfo,
+        setFilteredInfo,
       } }
     >
       {children}
