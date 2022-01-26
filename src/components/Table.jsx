@@ -1,22 +1,21 @@
-import React, { useEffect } from 'react';
-import getApi from '../services/getApi';
-
-const ONE_SECOND = 1000;
+import React, { useContext } from 'react';
+import GlobalContext from '../context/GlobalContext';
 
 function Table() {
-  // useEffect(() => {
-  //   getApi();
-  // }, []);
-
+  const {
+    data,
+  } = useContext(GlobalContext);
+  console.log(data);
   return (
-    <table>
-      <tr>
-        <th>Col1</th>
-        <th>Col2</th>
-        <th>Col3</th>
-        <th>Col4</th>
-      </tr>
-    </table>
+    <div>
+      <table className="bg-gray-500">
+        <tr>
+          <th className="px-4 py-2 border-b border-slate-300">Name</th>
+          <th className="px-4 py-2 border-b border-slate-300">Rotations</th>
+          <th className="px-4 py-2 border-b border-slate-300">Orbit Period</th>
+        </tr>
+      </table>
+    </div>
   );
 }
 

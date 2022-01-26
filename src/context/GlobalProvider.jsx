@@ -5,6 +5,9 @@ import getApi from '../services/getApi';
 
 function GlobalProvider({ children }) {
   const [data, setData] = useState();
+  const [column, setColumn] = useState();
+  const [comparison, setComparison] = useState();
+  const [value, setValue] = useState();
 
   useEffect(() => {
     const apiResults = () => {
@@ -13,9 +16,19 @@ function GlobalProvider({ children }) {
     };
     apiResults();
   }, []);
-  console.log(data);
+
   return (
-    <GlobalContext.Provider value={ { data } }>
+    <GlobalContext.Provider
+      value={ {
+        data,
+        column,
+        setColumn,
+        comparison,
+        setComparison,
+        value,
+        setValue,
+      } }
+    >
       {children}
     </GlobalContext.Provider>
   );
