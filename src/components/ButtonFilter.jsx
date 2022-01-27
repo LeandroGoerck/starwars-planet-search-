@@ -7,10 +7,7 @@ function ButtonFilter(props) {
   const { filteredInfo, setFilteredInfo } = useContext(GlobalContext);
 
   function pushObjInfoToArray(newObj) {
-    if (
-      typeof filteredInfo.filterByNumericValues !== 'undefined'
-      && filteredInfo.filterByNumericValues
-    ) {
+    if (filteredInfo?.filterByNumericValues) {
       const filteredList = filteredInfo.filterByNumericValues;
       const newfilteredInfo = [...filteredList, newObj];
       return newfilteredInfo;
@@ -24,7 +21,8 @@ function ButtonFilter(props) {
         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
         type="button"
         data-testid={ dataTestId }
-        onClick={ () => setFilteredInfo({ filterByNumericValues: pushObjInfoToArray(value) }) }
+        onClick={ () => setFilteredInfo({
+          filterByNumericValues: pushObjInfoToArray(value) }) }
       >
         Filtrar
       </button>
@@ -34,8 +32,7 @@ function ButtonFilter(props) {
 
 ButtonFilter.propTypes = {
   dataTestId: PropTypes.string.isRequired,
-  filterObj: PropTypes.any,
-  setFilteredInfo: PropTypes.func.isRequired,
+  value: PropTypes.number.isRequired,
 };
 
 export default ButtonFilter;

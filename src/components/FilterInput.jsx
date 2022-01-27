@@ -1,7 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { useContext } from 'react';
-import GlobalContext from '../context/GlobalContext';
 
 function FilterInput(props) {
   const { value, handleChange, dataTestId } = props;

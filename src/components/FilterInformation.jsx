@@ -2,13 +2,10 @@ import React, { useContext } from 'react';
 import GlobalContext from '../context/GlobalContext';
 
 function FilterInformation() {
-  const { filteredInfo, setFilteredInfo } = useContext(GlobalContext);
+  const { filteredInfo } = useContext(GlobalContext);
 
   function buildInformation() {
-    if (
-      filteredInfo.filterByNumericValues !== 'undefined'
-      && filteredInfo.filterByNumericValues
-    ) {
+    if (filteredInfo?.filterByNumericValues) {
       return filteredInfo.filterByNumericValues.map((info, index) => (
         <div key={ index }>
           <span>

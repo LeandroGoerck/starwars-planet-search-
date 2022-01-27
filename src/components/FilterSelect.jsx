@@ -11,7 +11,6 @@ function FilterSelect(props) {
       pr-8 ml-8
       focus:text-gray-700 focus:bg-white focus:border-green-600
       focus:outline-none"
-      aria-label="Metodo Pagamento"
       data-testid={ dataTestId }
       id="method"
       value={ value }

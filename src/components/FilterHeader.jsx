@@ -12,6 +12,7 @@ function FilterHeader() {
     setComparison,
     value,
     setValue,
+    filteredInfo,
     setFilteredInfo,
   } = useContext(GlobalContext);
 
@@ -29,6 +30,18 @@ function FilterHeader() {
     'igual a',
   ];
 
+  function getNotSelectedFilterList() {
+    if (filteredInfo?.filterByNumericValues) {
+      const filteredList = filteredInfo.filterByNumericValues.map((obj) => obj.column);
+      const newColumnArray = [...columnArray];
+      const notSelectedFilterList = newColumnArray
+        .filter((item) => !filteredList.toString().includes(item));
+      return notSelectedFilterList;
+    }
+  }
+
+  const filterValuesArray = getNotSelectedFilterList();
+
   const filterObj = {
     column,
     comparison,
@@ -41,7 +54,7 @@ function FilterHeader() {
         dataTestId="column-filter"
         value={ column }
         handleChange={ setColumn }
-        valuesArray={ columnArray }
+        valuesArray={ filterValuesArray }
       />
 
       <FilterSelect
