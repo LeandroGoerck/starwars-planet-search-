@@ -2,12 +2,20 @@ import React, { useContext } from 'react';
 import GlobalContext from '../context/GlobalContext';
 
 function FilterInformation() {
-  const { filteredInfo } = useContext(GlobalContext);
+  const { filteredInfo, setFilteredInfo } = useContext(GlobalContext);
+
+  function deleteFilter(option) {
+    const deletedFilterList = filteredInfo
+      .filterByNumericValues.filter((item) => item.column !== option);
+    if (deletedFilterList) {
+      setFilteredInfo({ filterByNumericValues: deletedFilterList });
+    }
+  }
 
   function buildInformation() {
     if (filteredInfo?.filterByNumericValues) {
       return filteredInfo.filterByNumericValues.map((info, index) => (
-        <div key={ index }>
+        <div key={ index } data-testid="filter">
           <span>
             {`${info.column} ${info.comparison} ${info.value}`}
           </span>
@@ -15,7 +23,7 @@ function FilterInformation() {
             type="button"
             className="bg-red-500 font-bold hover:bg-red-700 m-1 px-1 rounded text-white"
             value={ info.column }
-            onClick={ () => console.log(info.column) }
+            onClick={ () => deleteFilter(info.column) }
           >
             X
           </button>

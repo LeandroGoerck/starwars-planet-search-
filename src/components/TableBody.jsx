@@ -33,6 +33,7 @@ function TableBody() {
   }
 
   function handleComparison(apiData) {
+    console.log('filteredInfo = ', filteredInfo);
     if (filteredInfo?.filterByNumericValues) {
       const filteredColumnList = filteredInfo
         .filterByNumericValues.map((obj) => obj.column);
@@ -41,33 +42,34 @@ function TableBody() {
       const filteredComparisonList = filteredInfo
         .filterByNumericValues.map((obj) => obj.comparison);
 
-      if (filteredColumnList[0]) {
-        // const comparedData = apiData.filter((info) => Number(info[filteredColumnList[0]]) > filteredValueList[0]);
-        console.log(` column: ${filteredColumnList[0]}   
-                      comparison: ${filteredComparisonList[0]}  
-                      value: ${filteredValueList[0]}`);
+      console.log('filteredColumnList =', filteredColumnList);
+      console.log('filteredValueList =', filteredValueList);
+      console.log('filteredComparisonList =', filteredComparisonList);
 
-        if (filteredComparisonList[0] === 'maior que') {
-          return apiData.filter(
-            (info) => Number(info[filteredColumnList[0]]) > Number(filteredValueList[0]),
+      return filteredColumnList.reduce((acc, curr, index) => {
+        // if (filteredColumnList[index]) {
+        if (filteredComparisonList[index] === 'maior que') {
+          return [...apiData, acc].filter(
+            (info) => Number(info[filteredColumnList[index]])
+              > Number(filteredValueList[index]),
           );
         }
 
-        if (filteredComparisonList[0] === 'menor que') {
-          return apiData.filter(
-            (info) => Number(info[filteredColumnList[0]]) < Number(filteredValueList[0]),
+        if (filteredComparisonList[index] === 'menor que') {
+          return [...apiData, acc].filter(
+            (info) => Number(info[filteredColumnList[index]])
+              < Number(filteredValueList[index]),
           );
         }
-
-        if (filteredComparisonList[0] === 'igual a') {
-          return apiData.filter(
-            (info) => Number(info[filteredColumnList[0]])
-            === Number(filteredValueList[0]),
+        if (filteredComparisonList[index] === 'igual a') {
+          return [...apiData, acc].filter(
+            (info) => Number(info[filteredColumnList[index]])
+            === Number(filteredValueList[index]),
           );
         }
-
-        // return comparedData;
-      }
+        // }
+        return null;
+      }, apiData);
     }
 
     return apiData;
