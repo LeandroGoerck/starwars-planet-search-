@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import GlobalContext from '../context/GlobalContext';
 
-const style = 'py-2 border-b border-slate-300';
+// const style = 'py-2 border-b border-slate-100 text-white shadow-md shadow-green';
 
 function TableBody() {
   const { data, search, filteredInfo } = useContext(GlobalContext);
@@ -49,20 +49,20 @@ function TableBody() {
       return filteredColumnList.reduce((acc, curr, index) => {
         // if (filteredColumnList[index]) {
         if (filteredComparisonList[index] === 'maior que') {
-          return [...apiData, acc].filter(
+          return [...acc].filter(
             (info) => Number(info[filteredColumnList[index]])
               > Number(filteredValueList[index]),
           );
         }
 
         if (filteredComparisonList[index] === 'menor que') {
-          return [...apiData, acc].filter(
+          return [...acc].filter(
             (info) => Number(info[filteredColumnList[index]])
               < Number(filteredValueList[index]),
           );
         }
         if (filteredComparisonList[index] === 'igual a') {
-          return [...apiData, acc].filter(
+          return [...acc].filter(
             (info) => Number(info[filteredColumnList[index]])
             === Number(filteredValueList[index]),
           );
@@ -81,11 +81,15 @@ function TableBody() {
   console.log(filteredAndComparedData);
 
   return (
-    <tbody className="bg-white w-full">
+    <tbody className="bg-transparen hover:bg-slate-50">
       {filteredAndComparedData.map((planet) => (
-        <tr key={ planet.name } className={ style }>
+        <tr key={ planet.name } className="w-full">
           {bodyArray.map((info, index) => (
-            <td key={ `${index}_${info}` } className={ style }>
+            <td
+              key={ `${index}_${info}` }
+              className="py-2 pl-2 pr-2 border-b-2 shadow-md text-center
+                          border-slate-100 text-white hover:bg-white hover:bg-opacity-5"
+            >
               {planet[info]}
             </td>
           ))}
