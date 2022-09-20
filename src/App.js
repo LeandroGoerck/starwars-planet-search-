@@ -9,11 +9,13 @@ import FilterInformation from './components/FilterInformation';
 function App() {
   return (
     <GlobalProvider>
-      <Header />
-      <SearchInput />
-      <FilterHeader />
-      <FilterInformation />
-      <Table />
+      <div className="w-11/12 ml-auto mr-auto mt-4 mb-4 position-fixed">
+        <Header />
+        <SearchInput />
+        <FilterHeader />
+        <FilterInformation />
+        <Table />
+      </div>
     </GlobalProvider>
   );
 }

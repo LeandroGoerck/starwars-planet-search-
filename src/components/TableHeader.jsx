@@ -1,6 +1,6 @@
 import React from 'react';
 
-const style = 'py-2 border-b border-slate-300';
+const style = 'py-2 border-b border-slate-300 hover:bg-white hover:bg-opacity-5';
 
 function TableHeader() {
   const tableHeaderArray = [
@@ -20,7 +20,7 @@ function TableHeader() {
   ];
 
   return (
-    <thead className="bg-gray-500 w-full">
+    <thead className="bg-gray-500 w-full bg-opacity-20 ">
       <tr>
         {tableHeaderArray.map((item, index) => (
           <th key={ index } className={ style }>

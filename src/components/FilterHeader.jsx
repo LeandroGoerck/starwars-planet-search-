@@ -49,7 +49,10 @@ function FilterHeader() {
   };
 
   return (
-    <div className="bg-yellow-500 pt-4 pb-4 flex flex-box justify-center">
+    <div
+      className="pt-4 pb-4 flex flex-box justify-center
+                  bg-opacity-10 hover:bg-opacity-50"
+    >
       <FilterSelect
         dataTestId="column-filter"
         value={ column }

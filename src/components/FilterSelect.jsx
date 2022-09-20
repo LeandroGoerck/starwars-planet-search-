@@ -10,7 +10,7 @@ function FilterSelect(props) {
       border border-solid border-gray-300 rounded transition ease-in-out
       pr-8 ml-8
       focus:text-gray-700 focus:bg-white focus:border-green-600
-      focus:outline-none"
+      focus:outline-none hover:shadow-md        "
       data-testid={ dataTestId }
       id="method"
       value={ value }

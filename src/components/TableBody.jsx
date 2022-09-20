@@ -88,7 +88,7 @@ function TableBody() {
             <td
               key={ `${index}_${info}` }
               className="py-2 pl-2 pr-2 border-b-2 shadow-md text-center
-                          border-slate-100 text-white hover:bg-white hover:bg-opacity-5"
+                          border-slate-100 text-white hover:bg-white hover:bg-opacity-100 hover:text-black"
             >
               {planet[info]}
             </td>
